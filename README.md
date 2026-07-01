@@ -8,7 +8,7 @@ A free open-source project designed to turn youtube-videos into viral short vide
 <table>
   <tr>
     <td align="center">
-      <img width="400" height="700" alt="image" src="assets/ex1.png" ><br>
+      <img width="360" height="670" alt="image" src="assets/ex1.png" ><br>
       <sub><i>"The Speech that Made Obama President"</i></sub>
     </td>
     <td align="center">
