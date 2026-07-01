@@ -29,6 +29,16 @@ A free open-source project designed to turn youtube-videos into viral short vide
 - **Web version**: Besides the CLI, you can also generate videos on a local website
 - **Smart Highlight Selection**: Finds the most viral, hot moments from your video automatically based on algorithm
 
+## How It Works
+
+1. **Download**: Fetches the source video from YouTube, or uses the local file path directly
+2. **Transcribe**: `faster-whisper` produces a timestamped transcript locally — same step regardless of which `LLM_PROVIDER` is selected
+3. **Detect content type**: The chosen LLM classifies the video (podcast, interview, tutorial, vlog, etc.) and pacing, so the highlight prompt can be tuned per content style
+4. **Highlight ranking**: The chosen LLM (`openai` / `gemini` / `muapi`) scans the transcript through a virality framework — hook moments, emotional peaks, opinion bombs, revelations, conflict, quotables, story peaks, practical value — and emits ranked candidates with scores 0–100
+5. **Dedupe**: Overlapping candidates are collapsed by score
+6. **Top-N selection**: The top `--n` candidates are selected
+7. **Auto-crop**: Each highlight is rendered as a vertical short at the requested `--ratio`, with an optional AI-generated hook at the start unless `--no-hook` is set
+
 # Requirements
 - Python 3.10+
 - Any LLM API key(OpenAI/Gemini/MuAPI)
@@ -120,6 +130,31 @@ python main.py "/Users/Admin/Folder/video.mp4" \
 | --ratio | 9:16 | Any ratio / 9:16 for short videos / 1:1 for square |
 | --resolution | 720 | Source video download resolution: `360` / `480` / `720` / `1080` |
 | --language | auto | Force Whisper language code (e.g. `en`) |
+| --no-hook | - | Excludes AI generated hook from the start of the  clip |
+
 
 ## Web version set-up
-You can also generate videos in your browser
+Instead of the CLI, you can use a local web interface to queue multiple videos at once and adjust flags visually. The LLM provider and API keys are still configured in `.env` — the web version only handles video input and render flags.
+
+```bash
+python3 server.py
+```
+Serve the frontend:
+
+```bash
+cd web
+python3 -m http.server 8000
+```
+Then, open in your browser:
+
+```bash
+http://localhost:8000/shorts-generator-ui.html
+```
+
+## Contributing 
+
+Feel free to open an issue or fork the repository for your projects.
+
+## License
+
+This project is licensed under the MIT License.
