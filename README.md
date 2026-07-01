@@ -21,3 +21,12 @@ A free open-source project designed to turn youtube-videos into viral short vide
     </td>
   </tr>
 </table>
+
+# Features 🪁
+- **API**: Freely use this generator in your own projects via our API.
+- **Convenient**: Paste a YouTube link (any length!) and get a ready-to-post 9:16 short.
+- **Hooks option**: When enabled, adds a context-aware AI-generated hook at the start of the clip
+- **Web version**: Besides the CLI, you can also generate videos on a local website
+- **Smart Highlight Selection**: Finds the most viral, hot moments from your video automatically based on algorithm
+
+  №
