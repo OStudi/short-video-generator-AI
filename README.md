@@ -43,7 +43,6 @@ A free open-source project designed to turn youtube-videos into viral short vide
 - Python 3.10+
 - Any LLM API key(OpenAI/Gemini/MuAPI)
 - `requirements.txt` file dependencies
-- ffmpeg on your PATH
 
 # Quick start
 1. **Clone the repo:**
