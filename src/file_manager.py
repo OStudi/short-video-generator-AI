@@ -1,7 +1,7 @@
- import json
+import json
 import os
 
-
+ 
 def load_from_json(path: str): 
     if os.path.isfile(path):
         with open(path, encoding='utf-8') as file:
