@@ -3,7 +3,7 @@ import os
 
  
 def load_from_json(path: str): 
-    if os.path.isfile(path):
+    if os.path.isfile(path): 
         with open(path, encoding='utf-8') as file:
             return json.load(file) 
     else:
