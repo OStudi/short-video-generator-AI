@@ -14,7 +14,7 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 
 
-fs.run_sync(FORCE_SYNC=True)
+fs.run_sync()
 
 def _banner() -> Panel:
     return Panel.fit(
